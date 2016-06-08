@@ -1,0 +1,25 @@
+{
+  "name": "match.js",
+  "version": "0.0.0",
+  "description": "Match values like a Rust",
+  "main": "lib/match.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified. Wait for v1.0.0\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LestaD/match.js.git"
+  },
+  "keywords": [
+    "match",
+    "value",
+    "compare",
+    "function"
+  ],
+  "author": "Sergey Sova <i.am@lestad.net> (https://lestad.top)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/LestaD/match.js/issues"
+  },
+  "homepage": "https://github.com/LestaD/match.js#readme"
+}
