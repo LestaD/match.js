@@ -21,7 +21,7 @@ import { match, matchType } from 'match.js';
 ### ES6:
 
 ```js
-const match = require('match.js');
+const { match } = require('match.js');
 
 const P_INIT = 1;
 const P_READY = 2;
