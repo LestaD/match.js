@@ -71,7 +71,7 @@ console.log(target); // some
 ## Example
 
 ```js
-import match, { matchType, matchStrict } from 'match.js';
+import match, { matchType, matchStrict, matchRegexp } from 'match.js';
 
 // match by value, default is `null`
 const result = match(20, {
@@ -111,4 +111,9 @@ const result4 = match('second', {
 });
 
 console.log(result4); // 2
+
+
+const result5 = matchRegexp('hi all', {
+  '^[a-z]+': true
+}, false, 'i');
 ```
