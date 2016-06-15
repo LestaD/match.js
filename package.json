@@ -22,7 +22,7 @@
     "url": "https://github.com/LestaD/match.js/issues"
   },
   "homepage": "https://github.com/LestaD/match.js#readme",
-  "dependencies": {
+  "devDpendencies": {
     "babel-preset-es2016": "^6.0.11"
   }
 }
