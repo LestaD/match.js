@@ -1,12 +1,10 @@
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-module.exports = { match: match, matchType: matchType, matchRegexp: matchRegexp, matchStrict: matchStrict, matchRegExp: matchRegexp, default: match };
+module.exports =
+{ match: match, matchType: matchType, matchRegexp: matchRegexp, matchStrict: matchStrict, matchRegExp: matchRegexp, default: match };
 
 /**
  * Find target by key in variants.
@@ -18,15 +16,18 @@ module.exports = { match: match, matchType: matchType, matchRegexp: matchRegexp,
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function match(target) {
-  var variants = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-  var def = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-
+function match(target, variants = {}, def = null) {
   function callOrReturn(value) {
-    return typeof value === 'function' ? value() : value;
+    return typeof value === 'function'
+      ? value()
+      : value;
   }
 
-  return callOrReturn(_typeof(variants.hasOwnProperty(target)) ? variants[target] : def);
+  return callOrReturn(
+    typeof variants.hasOwnProperty(target)
+      ? variants[target]
+      : def
+  );
 }
 
 /**
@@ -39,11 +40,8 @@ function match(target) {
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function matchType(target) {
-  var variants = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
-  var def = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
-
-  return match(typeof target === 'undefined' ? 'undefined' : _typeof(target), variants, def);
+function matchType(target, variants = {}, def = null) {
+  return match(typeof target, variants, def);
 }
 
 /**
@@ -57,10 +55,12 @@ function matchType(target) {
  * @return {Any}               Matched value or default
  */
 function matchStrict(target, variants, def) {
-  if ((typeof variants === 'undefined' ? 'undefined' : _typeof(variants)) !== 'object') throw new Error('Variants must be object');
+  if (typeof variants !== 'object') throw new Error('Variants must be object');
   if (typeof def === 'undefined') throw new Error('Default value cannot be undefined');
 
-  return _typeof(variants.hasOwnProperty(target)) ? variants[target] : def;
+  return typeof variants.hasOwnProperty(target)
+    ? variants[target]
+    : def;
 }
 
 /**
@@ -72,18 +72,15 @@ function matchStrict(target, variants, def) {
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function matchRegexp(target, variants, def) {
-  var flags = arguments.length <= 3 || arguments[3] === undefined ? 'igm' : arguments[3];
+function matchRegexp(target, variants, def, flags = 'igm') {
+  const list = Object.keys(variants);
+  const value = String(target);
 
-  var list = Object.keys(variants);
-  var value = String(target);
-
-  for (var id = 0, rxp = list[id]; id < list.length; id++) {
-    var tester = new RegExp(rxp, flags);
+  for (let id = 0, rxp = list[id]; id < list.length; id++) {
+    const tester = new RegExp(rxp, flags);
     if (tester.test(target)) {
       return variants[rxp];
     }
   }
   return def;
 }
-
