@@ -58,7 +58,7 @@ function matchStrict(target, variants, def) {
   if (typeof variants !== 'object') throw new Error('Variants must be object');
   if (typeof def === 'undefined') throw new Error('Default value cannot be undefined');
 
-  return typeof variants.hasOwnProperty(target)
+  return variants.hasOwnProperty(target)
     ? variants[target]
     : def;
 }
