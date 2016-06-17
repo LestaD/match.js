@@ -4,6 +4,7 @@
   "description": "Match values like a Rust",
   "main": "lib/match.js",
   "scripts": {
+    "build": "babel ./src/match.js --presets es2015 > ./lib/match.js",
     "test": "echo \"Error: no test specified. Wait for v1.0.0\" && exit 1"
   },
   "repository": {

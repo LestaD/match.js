@@ -24,7 +24,7 @@ function match(target, variants = {}, def = null) {
   }
 
   return callOrReturn(
-    typeof variants.hasOwnProperty(target)
+    variants.hasOwnProperty(target)
       ? variants[target]
       : def
   );
