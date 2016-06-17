@@ -1,11 +1,4 @@
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-module.exports =
-{ match: match, matchType: matchType, matchRegexp: matchRegexp, matchStrict: matchStrict, matchRegExp: matchRegexp, default: match };
-
 /**
  * Find target by key in variants.
  * If function founded, call it and result which returns
@@ -16,7 +9,8 @@ module.exports =
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function match(target, variants = {}, def = null) {
+export default match;
+export function match(target, variants = {}, def = null) {
   function callOrReturn(value) {
     return typeof value === 'function'
       ? value()
@@ -40,7 +34,7 @@ function match(target, variants = {}, def = null) {
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function matchType(target, variants = {}, def = null) {
+export function matchType(target, variants = {}, def = null) {
   return match(typeof target, variants, def);
 }
 
@@ -54,7 +48,7 @@ function matchType(target, variants = {}, def = null) {
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function matchStrict(target, variants, def) {
+export function matchStrict(target, variants, def) {
   if (typeof variants !== 'object') throw new Error('Variants must be object');
   if (typeof def === 'undefined') throw new Error('Default value cannot be undefined');
 
@@ -72,7 +66,7 @@ function matchStrict(target, variants, def) {
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
-function matchRegexp(target, variants, def, flags = 'igm') {
+export function matchRegexp(target, variants, def, flags = 'igm') {
   const list = Object.keys(variants);
   const value = String(target);
 
