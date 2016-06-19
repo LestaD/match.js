@@ -35,7 +35,12 @@ export function match(target, variants = {}, def = null) {
  * @return {Any}               Matched value or default
  */
 export function matchType(target, variants = {}, def = null) {
-  return match(typeof target, variants, def);
+  let type = typeof target;
+  if (Array.isArray(target)) {
+    type = 'array';
+  }
+
+  return match(type, variants, def);
 }
 
 /**
@@ -66,11 +71,13 @@ export function matchStrict(target, variants, def) {
  * @param  {Any} def           Value return by default if no one key is matched
  * @return {Any}               Matched value or default
  */
+export const matchRegExp = matchRegexp;
 export function matchRegexp(target, variants, def, flags = 'igm') {
   const list = Object.keys(variants);
   const value = String(target);
 
-  for (let id = 0, rxp = list[id]; id < list.length; id++) {
+  for (let id = 0; id < list.length; id++) {
+    const rxp = list[id];
     const tester = new RegExp(rxp, flags);
     if (tester.test(target)) {
       return variants[rxp];
