@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - "0.12.14"
+  - "4.4.3"
+  - "5.4.1"
+  - "5.10.1"
+  - "6.1.0"
+  - "6.2.2"
+sudo: false
+addons:
+  code_climate:
+    repo_token: 1899a24fbfe8378cc69070349aa88899c73498c7692665dda825efda9d218c77
+after_script:
+  - npm i -g istanbul codeclimate-test-reporter
+  - npm run coverage
+  - codeclimate-test-reporter < ./coverage/lcov.info

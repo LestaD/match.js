@@ -1,8 +1,23 @@
 # Match.js
+[![GitHub stars](https://img.shields.io/github/stars/lestad/match.js.svg)](https://github.com/lestad/match.js/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/lestad/match.js.svg)](https://github.com/lestad/match.js/network)
+[![npm](https://img.shields.io/npm/dm/match.js.svg?maxAge=2592000)](https://npmjs.com/match.js)
+[![GitHub issues](https://img.shields.io/github/issues/lestad/match.js.svg?maxAge=2592000)]()
+[![Maintainer](https://img.shields.io/badge/maintainer-lestad-blue.svg)](https://lestad.top)
 
-Match values like a Rust
+## Readme
+
+[![Code Climate](https://codeclimate.com/github/LestaD/match.js/badges/gpa.svg)](https://codeclimate.com/github/LestaD/match.js)
+[![Test Coverage](https://codeclimate.com/github/LestaD/match.js/badges/coverage.svg)](https://codeclimate.com/github/LestaD/match.js/coverage)
+[![Issue Count](https://codeclimate.com/github/LestaD/match.js/badges/issue_count.svg)](https://codeclimate.com/github/LestaD/match.js)
+[![Build Status](https://travis-ci.org/LestaD/match.js.svg?branch=master)](https://travis-ci.org/LestaD/match.js)
+[![David](https://img.shields.io/david/dev/lestad/match.js.svg?maxAge=2592000)]()
+
+Match values like a Boss
 
 ## Install
+
+[![npm](https://img.shields.io/npm/v/match.js.svg?maxAge=2592000)](https://npmjs.com/match.js)
 
 ```bash
 npm install --save match.js
@@ -117,3 +132,8 @@ const result5 = matchRegexp('hi all', {
   '^[a-z]+': true
 }, false, 'i');
 ```
+
+
+## License
+
+[![license](https://img.shields.io/github/license/lestad/match.js.svg?maxAge=2592000)]()
