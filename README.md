@@ -17,11 +17,8 @@ Match values like a Boss
 
 ## Install
 
-[![npm](https://img.shields.io/npm/v/match.js.svg?maxAge=2592000)](https://npmjs.com/match.js)
+[![NPM](https://nodei.co/npm/match.js.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/match.js/)
 
-```bash
-npm install --save match.js
-```
 
 ## Usage
 
